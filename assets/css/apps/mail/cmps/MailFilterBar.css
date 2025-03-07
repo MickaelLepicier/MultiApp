@@ -1,0 +1,84 @@
+.mail-filterBar-container {
+  /* flex-grow: 1; */
+
+  /* max-width: 200px; */
+  /* width: 400px; */
+
+  /* padding: 1em; */
+  background-color: #e5e5e5;
+}
+
+.compose-btn {
+  margin: 10px 0 13px 8px;
+
+  padding: 15px 23px;
+  font-size: 16px;
+  /* font-weight: bold; */
+
+  border: none;
+  border-radius: 15px;
+  color: #5f6368;
+  background-color: #ffffff;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+.compose-btn i {
+  font-size: 1.2rem;
+  margin-inline: 0 7px;
+}
+
+.compose-btn:hover {
+  /* background-color: #a1d4f7; */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* .compose-btn:active {
+  background-color: #7bbde5;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+} */
+
+.mail-filterBar-container p {
+  display: flex;
+  gap: 1em;
+  margin: 0;
+  max-width: 200px;
+
+  line-height: 35px;
+  align-items: center;
+  padding: 0 26px 0 12px;
+  border-radius: 0 20px 20px 0;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.mail-filterBar-container img {
+  max-width: 15px;
+}
+
+.mail-filterBar-container p:hover {
+  background-color: lightgray;
+}
+
+.mail-filterBar-container.collapsed {
+  /* width: 50px; */
+}
+
+.mail-filterBar-container.collapsed .compose-btn {
+  padding: 15px 20px;
+}
+
+.mail-filterBar-container.collapsed .compose-btn i {
+  margin: 0;
+}
+
+.mail-filterBar-container.collapsed img {
+  width: 50px;
+  margin: 5px auto;
+
+
+}
+.mail-filterBar-container.collapsed span {
+  display: none;
+}

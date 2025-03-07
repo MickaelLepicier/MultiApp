@@ -1,0 +1,70 @@
+.mail-details {
+  padding: 1em;
+  background-color: #fff;
+  animation: slide-in 0.3s ease-out;
+}
+
+.mail-details-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.close-btn {
+  max-width: 25px;
+  font-size: 18px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #5f6368;
+}
+
+.mail-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  font-size: 0.9rem;
+  color: #5f6368;
+  margin-bottom: 20px;
+}
+
+.mail-body {
+  justify-items: center;
+  color: black;
+}
+
+.mail-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.mail-actions button {
+  font-size: 16px;
+  padding: 10px 20px;
+  background-color: #f1f3f4;
+  color: #444746;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.mail-actions button:hover {
+  background-color: #e0e0e0;
+}
+
+/* Animation */
+@keyframes slide-in {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

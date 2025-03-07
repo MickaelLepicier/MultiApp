@@ -1,0 +1,11 @@
+.root-cmp {
+  display: flex;
+  flex-direction: column;
+  /* min-height: 100vh; */
+  height: 100vh;
+}
+
+.root-cmp main {
+  flex-grow: 1;
+  overflow-y: auto;
+}
