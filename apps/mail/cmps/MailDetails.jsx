@@ -5,14 +5,12 @@ const { useState, useEffect, useRef } = React
 export function MailDetails() {
   const { mails, handleChange, onRemove, onRead, openCompose } =
     useOutletContext()
-  // TODO CSS btns like in compose
-  const { mailId } = useParams()
+
+    const { mailId } = useParams()
 
   const navigate = useNavigate()
 
   const mail = mails.find((mail) => mail.id === mailId)
-
-  console.log('mail: ', mail)
 
   if (!mail) return <div>Loading... </div>
   return (

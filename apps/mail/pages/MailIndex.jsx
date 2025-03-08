@@ -1,17 +1,10 @@
-// TODOs:
-
-
-// mobile css
-
-// the rest of the css
-
 
 
 
 import { mailService } from '../services/mail.service.js'
 import { MailHeader } from '../cmps/MailHeader.jsx'
 import { MailCompose } from '../cmps/MailCompose.jsx'
-import { MailFilterBar } from '../cmps/MailFilterBar.jsx'
+import { MailFilterSidebar } from '../cmps/MailFilterSidebar.jsx'
 // import { MailList } from '../cmps/MailList.jsx'
 import {
   showErrorMsg,
@@ -173,7 +166,7 @@ export function MailIndex() {
       />
 
       <main className={isCollapse}>
-        <MailFilterBar openCompose={openCompose} isWide={isWide} />
+        <MailFilterSidebar openCompose={openCompose} isWide={isWide} />
 
         <div className="outlet-container">
           <Outlet

@@ -6,7 +6,7 @@ import { UserMsg } from './cmps/UserMsg.jsx'
 import { About } from './pages/About.jsx'
 import { Home } from './pages/Home.jsx'
 import { MailIndex } from './apps/mail/pages/MailIndex.jsx'
-import { MailInbox, MailStarred, MailSent, MailDraft, MailTrash } from './apps/mail/cmps/FilterBarComps.jsx'
+import { MailInbox, MailStarred, MailSent, MailDraft, MailTrash } from './apps/mail/cmps/FilterSidebarComps.jsx'
 import {MailDetails} from './apps/mail/cmps/MailDetails.jsx'
 
 import { NoteIndex } from './apps/note/pages/NoteIndex.jsx'
