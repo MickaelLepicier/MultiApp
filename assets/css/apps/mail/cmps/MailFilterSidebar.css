@@ -5,7 +5,7 @@
 .compose-btn {
   margin: 10px 0 13px 8px;
 
-  padding: 15px 23px;
+  padding: 15px 20px;
   font-size: 16px;
 
   border: none;
@@ -31,15 +31,21 @@
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 } */
 
+/*
+TODO
+    when hover make it uncollabsed
+*/
+
 .mail-filterBar-container p {
   display: flex;
   gap: 1em;
   margin: 0;
   max-width: 200px;
 
-  line-height: 35px;
+  /* line-height: 35px; */
   align-items: center;
-  padding: 0 26px 0 12px;
+  padding: 8px 15px 8px 25px;
+  /* padding: 8px 25px; */
   border-radius: 0 20px 20px 0;
   cursor: pointer;
   transition: background-color 0.2s;
@@ -53,7 +59,7 @@
   background-color: lightgray;
 }
 
-.active {
+.mail-sidebar-active {
   background-color: lightgray;
 }
 
@@ -69,12 +75,27 @@
   margin: 0;
 }
 
+/*
+TODO
+    when collapsed make the btns staying at the same line 
+*/
+
+.mail-filterBar-container.collapsed p {
+  margin: 0 20px;
+  padding: 12px;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.mail-filterBar-container.collapsed p:hover {
+  /* */
+}
+
 .mail-filterBar-container.collapsed img {
   width: 50px;
-  margin: 5px auto;
-
-
+  /* margin: 5px auto; */
 }
+
 .mail-filterBar-container.collapsed span {
   display: none;
 }
