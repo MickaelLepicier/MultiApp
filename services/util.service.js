@@ -9,9 +9,11 @@ export const utilService = {
   getLableColor,
   animateCSS,
   debounce,
+  setUpperCase,
   loadFromStorage,
   saveToStorage
 }
+
 
 function saveToStorage(key, val) {
   localStorage.setItem(key, JSON.stringify(val))
@@ -209,4 +211,8 @@ function debounce(callback, wait) {
       callback(...args)
     }, wait)
   }
+}
+
+function setUpperCase(str){
+  return str.charAt(0).toUpperCase() + str.slice(1)
 }

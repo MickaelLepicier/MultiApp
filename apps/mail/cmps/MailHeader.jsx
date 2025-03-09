@@ -9,8 +9,8 @@ function test(){
   return (
     <section className="mail-header">
       <i
-        className="fas fa-bars wide-btn"
-        onClick={() => onSetIsWide()}
+        className="fas fa-bars btn-wide"
+        onClick={onSetIsWide}
       ></i>
 
       <h1 className="logo-container">

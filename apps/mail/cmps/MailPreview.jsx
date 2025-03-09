@@ -1,3 +1,5 @@
+import { utilService } from "../../../services/util.service.js"
+
 const { useNavigate } = ReactRouterDOM
 
 export function MailPreview({
@@ -24,10 +26,17 @@ export function MailPreview({
 
   const navigate = useNavigate()
 
-  let sentFrom = from
+  // TODO - subject: make the first letter uppercase
+
+
+  let sentFrom = utilService.setUpperCase(from.split('@')[0])
+
   if (mail.from === 'user@appsus.com') {
-    sentFrom = `To: ${to}`
+    sentFrom = `To: ${utilService.setUpperCase(to.split('@')[0])}`
   }
+
+
+
 
   // const starActive = isStar ? '\u2B50' : '\u2606'
   const selectActive = isSelected ? 'select-active' : ''
@@ -57,6 +66,8 @@ export function MailPreview({
 
     navigate(`/mail/details${id}`)
   }
+
+ 
 
   return (
     <div className={`mail-item ${isRead ? 'active' : ''}`}>

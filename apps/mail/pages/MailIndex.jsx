@@ -32,6 +32,7 @@ export function MailIndex() {
   // const [isCompose, setIsCompose] = useState(false)
 
   const [isWide, setIsWide] = useState(true)
+  const [isBtnWideClicked, setIsBtnWideClicked] = useState(false)
 
   const navigate = useNavigate()
 
@@ -51,6 +52,7 @@ export function MailIndex() {
 
   function onSetIsWide() {
     setIsWide(!isWide)
+    setIsBtnWideClicked(!isBtnWideClicked)
   }
 
   function openCompose(mailId = 'new') {
@@ -166,7 +168,7 @@ export function MailIndex() {
       />
 
       <main className={isCollapse}>
-        <MailFilterSidebar openCompose={openCompose} isWide={isWide} />
+        <MailFilterSidebar openCompose={openCompose} isWide={isWide} isBtnWideClicked={isBtnWideClicked} setIsWide={setIsWide} />
 
         <div className="outlet-container">
           <Outlet

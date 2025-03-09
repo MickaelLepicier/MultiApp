@@ -166,12 +166,14 @@ function _createMails() {
 
     const randomIdx = utilService.getRandomIntInclusive(0, emailDomains.length -1)
     const mailFrom = `${emailNames[randomIdx]}@${emailDomains[randomIdx]}.com`
-
+    const mailSubject = utilService.setUpperCase(utilService.makeLorem(2))
+    const mailBody = utilService.setUpperCase(utilService.makeLorem(10))
+    
     const mail = {
       id: utilService.makeId(),
       createdAt: 1551133930500,
-      subject: utilService.makeLorem(2),
-      body: utilService.makeLorem(10),
+      subject: mailSubject,
+      body: mailBody,
       isRead: false,
       isStar: false,
       isSelected: false,

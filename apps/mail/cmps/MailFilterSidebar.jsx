@@ -2,7 +2,12 @@ const { Link } = ReactRouterDOM
 
 const { useState } = React
 
-export function MailFilterSidebar({ openCompose, isWide }) {
+export function MailFilterSidebar({
+  openCompose,
+  isWide,
+  isBtnWideClicked,
+  setIsWide
+}) {
   // TODO
   // make ['Inbox', 'Starred'...].map(....) or with a function
 
@@ -16,10 +21,32 @@ export function MailFilterSidebar({ openCompose, isWide }) {
     return active === currActive ? 'mail-sidebar-active' : ''
   }
 
+  function onUpdateIsWide(boolean) {
+    if (!isBtnWideClicked) return
+
+    
+    let timeout
+
+    if (boolean) {
+      timeout = setTimeout(() => {
+        console.log('timeout')
+        setIsWide(boolean)
+      }, 800)
+      return
+    }
+
+    clearTimeout(timeout)
+    setIsWide(boolean)
+  }
+
   const isCollapse = isWide ? '' : 'collapsed'
 
   return (
-    <section className={`mail-filterBar-container ${isCollapse}`}>
+    <section
+      className={`mail-filterBar-container ${isCollapse}`}
+      onMouseEnter={() => onUpdateIsWide(true)}
+      onMouseLeave={() => onUpdateIsWide(false)}
+    >
       <button className="compose-btn" onClick={onCompose}>
         <i className="fas fa-pen"></i> <span>Compose</span>
       </button>

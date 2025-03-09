@@ -3,9 +3,10 @@
 }
 
 .compose-btn {
-  margin: 10px 0 13px 8px;
+  display: flex;
 
-  padding: 15px 20px;
+  margin: 10px 0 13px 8px;
+  padding: 18px 22px;
   font-size: 16px;
 
   border: none;
@@ -19,32 +20,27 @@
 
 .compose-btn i {
   font-size: 1.2rem;
-  margin-inline: 0 7px;
+  margin-inline: 0 20px;
 }
 
 .compose-btn:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-/* .compose-btn:active {
-  background-color: #7bbde5;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-} */
-
-/*
-TODO
-    when hover make it uncollabsed
-*/
+.mail-filterBar-container.collapsed {
+  min-width: 80px;
+}
 
 .mail-filterBar-container p {
   display: flex;
   gap: 1em;
   margin: 0;
-  max-width: 200px;
+  max-width: 190px;
+  height: 15px;
 
   /* line-height: 35px; */
   align-items: center;
-  padding: 8px 15px 8px 25px;
+  padding: 8px 15px 8px 27px;
   /* padding: 8px 25px; */
   border-radius: 0 20px 20px 0;
   cursor: pointer;
@@ -60,35 +56,38 @@ TODO
 }
 
 .mail-sidebar-active {
+  font-weight: bold;
   background-color: lightgray;
-}
-
-.mail-filterBar-container.collapsed {
-  /* width: 50px; */
-}
-
-.mail-filterBar-container.collapsed .compose-btn {
-  padding: 15px 20px;
 }
 
 .mail-filterBar-container.collapsed .compose-btn i {
   margin: 0;
 }
 
-/*
-TODO
-    when collapsed make the btns staying at the same line 
-*/
-
 .mail-filterBar-container.collapsed p {
-  margin: 0 20px;
-  padding: 12px;
+  margin: 0 18px;
+  padding: 8px 16px;
+
+  max-width: 0;
+  height: 15px;
+
+  display: flex;
   justify-content: center;
+  align-items: center;
+
   border-radius: 50%;
+  transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
 .mail-filterBar-container.collapsed p:hover {
   /* */
+  /* background-color: lightgray; 
+  transform: scale(1.1); */
+
+  /* min-width: 190px;
+  border-radius: 0 20px 20px 0; */
+
+  /* grid-template-columns: 250px 1fr; */
 }
 
 .mail-filterBar-container.collapsed img {
