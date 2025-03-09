@@ -32,17 +32,17 @@ export function MailDetails() {
         </div>
       </header>
 
-      <div className="mail-meta">
+      <div className="mail-details-meta">
         <p>
           <strong>From:</strong> {mail.from}
         </p>
 
-        <p className="mail-date">
+        <p className="mail-details-date">
           {new Date(mail.createdAt).toLocaleDateString('he')}
         </p>
       </div>
 
-      <div className="mail-body">
+      <div className="mail-details-body">
         <p>{mail.body}</p>
       </div>
 

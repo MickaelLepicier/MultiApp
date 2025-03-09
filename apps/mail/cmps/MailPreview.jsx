@@ -1,42 +1,19 @@
-import { utilService } from "../../../services/util.service.js"
+import { utilService } from '../../../services/util.service.js'
 
 const { useNavigate } = ReactRouterDOM
 
-export function MailPreview({
-  mail,
-  onRemove,
-  onRead,
-  handleChange,
-  openCompose
-}) {
-  const {
-    id,
-    createdAt,
-    subject,
-    body,
-    isRead,
-    isStar,
-    isSelected,
-    isDraft,
-    sentAt,
-    removedAt,
-    from,
-    to
-  } = mail
+export function MailPreview({ mail, onRemove, onRead, handleChange, openCompose }) {
+  const { id, createdAt, subject, body, isRead, isStar, isSelected, isDraft, sentAt, removedAt, from, to } = mail
 
   const navigate = useNavigate()
 
   // TODO - subject: make the first letter uppercase
-
 
   let sentFrom = utilService.setUpperCase(from.split('@')[0])
 
   if (mail.from === 'user@appsus.com') {
     sentFrom = `To: ${utilService.setUpperCase(to.split('@')[0])}`
   }
-
-
-
 
   // const starActive = isStar ? '\u2B50' : '\u2606'
   const selectActive = isSelected ? 'select-active' : ''
@@ -67,8 +44,6 @@ export function MailPreview({
     navigate(`/mail/details${id}`)
   }
 
- 
-
   return (
     <div className={`mail-item ${isRead ? 'active' : ''}`}>
       <input
@@ -97,9 +72,11 @@ export function MailPreview({
         {sentFrom}
       </span>
       <span className="mail-subject" onClick={mailClicked}>
-        {subject}
+        {subject} {' - '}
+        {/* TODO make the space between 2 of the parts with the -  */}
       </span>
       <span className="mail-body" onClick={mailClicked}>
+        {' '}
         {body}
       </span>
       {/* createdAt || sentAt */}
@@ -112,19 +89,11 @@ export function MailPreview({
 
       <div className="btns-action">
         <button className="btn-action" onClick={() => onRead(id)}>
-          <img
-            src={`/apps/mail/img/icon/${readIcon}.png`}
-            alt="read-unread-icon"
-            className="read-unread-icon"
-          />
+          <img src={`/apps/mail/img/icon/${readIcon}.png`} alt="read-unread-icon" className="read-unread-icon" />
         </button>
 
         <button className="btn-action" onClick={() => onRemove(id)}>
-          <img
-            src="/apps/mail/img/icon/trash.png"
-            alt="trash-icon"
-            className="trash-icon"
-          />
+          <img src="/apps/mail/img/icon/trash.png" alt="trash-icon" className="trash-icon" />
         </button>
       </div>
     </div>
