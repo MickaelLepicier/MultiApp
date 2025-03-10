@@ -12,7 +12,7 @@
   /* display: flex; */
 
   display: grid;
-  grid-template-columns: 43px 30px 200px auto 1fr auto;
+  grid-template-columns: 43px 30px 200px auto auto 1fr auto;
 
   align-items: center;
   justify-content: space-between;
@@ -21,9 +21,17 @@
   /* height: 15px;
   padding: 12px;
   border-bottom: 1px solid #e0e0e0; */
-  border: 1px solid #e0e0e0;
+  /* border: 1px solid #e0e0e0; */
+
+  border: 1px solid #ebebeb;
+
   cursor: pointer;
-  transition: box-shadow 0.2s ease, background-color 0.2s ease;
+  /* transition: box-shadow 0.2s ease, background-color 0.2s ease; */
+}
+
+.mail-separator {
+  margin: 0 4px;
+  color: #5f6368;
 }
 
 .mail-item.active {
@@ -31,18 +39,44 @@
 }
 
 .mail-item:hover {
+  /* TODO ask help from Dori to do it exactly like in gmail */
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+
+  /*  make the star and checkbox go black */
+  color: black;
+
   /* box-shadow: rgba(100, 121, 143, 0.12) 0px -1px 0px 0px inset; */
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  /* border: 1px solid rgb(199, 199, 199); */
+  /* box-shadow: 0 1px 1px rgba(0, 0, 0, 0.8), 0 1px 2px rgba(0, 0, 0, 0.2); */
 }
 
+/* TODO make it like in gmail */
 .mail-checkbox {
   margin-right: 12px;
+  /* color:rgb(183, 183, 183); */
+  border: 2px solid rgb(183, 183, 183);
+
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgb(183, 183, 183); /* Change border color */
+  border-radius: 4px; /* Optional: rounded corners */
+  appearance: none; /* Remove default checkbox styling */
+  -webkit-appearance: none; /* For Safari */
+  -moz-appearance: none; /* For Firefox */
+  outline: none;
+  cursor: pointer;
+
+  /* appearance: none; 
+  -webkit-appearance: none; 
+  -moz-appearance: none; / */
 }
 
 .mail-star {
   /* margin-right: 12px; */
   font-size: 18px;
   cursor: pointer;
+  color: rgb(183, 183, 183);
+  /* transform: scale(1); */
 }
 
 .mail-star.starred {

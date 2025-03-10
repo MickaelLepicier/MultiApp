@@ -52,7 +52,7 @@
 }
 
 .mail-filterBar-container p:hover {
-  background-color: lightgray;
+  background-color: rgb(220, 220, 220);
 }
 
 .mail-sidebar-active {

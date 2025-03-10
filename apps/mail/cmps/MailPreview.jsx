@@ -63,7 +63,7 @@ export function MailPreview({ mail, onRemove, onRead, handleChange, openCompose 
         onClick={onHandleChange}
       >
         {/* {starActive} */}
-        {isStar ? '⭐' : '☆'}
+        {isStar ? '★' : '☆'}
       </span>
 
       {/* <div onClick={mailClicked}> */}
@@ -72,11 +72,12 @@ export function MailPreview({ mail, onRemove, onRead, handleChange, openCompose 
         {sentFrom}
       </span>
       <span className="mail-subject" onClick={mailClicked}>
-        {subject} {' - '}
-        {/* TODO make the space between 2 of the parts with the -  */}
+        {subject}
+
       </span>
+      <span className="mail-separator"> - </span>
       <span className="mail-body" onClick={mailClicked}>
-        {' '}
+       
         {body}
       </span>
       {/* createdAt || sentAt */}
