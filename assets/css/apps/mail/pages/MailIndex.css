@@ -74,10 +74,9 @@
 
 .mail-header {
   display: flex;
-  height: 40px;
-  /* padding: 0.5em 1em; */
+  height: 45px;
   padding: 10px 15px;
-  background-color: #e5e5e5;
+  background-color: #f8fafd;
 }
 
 .mail-header .btn-wide {

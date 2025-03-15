@@ -27,6 +27,8 @@ export function MailIndex() {
   )
 
   // const [mailId, setMailId] = useState('')
+
+  // TODO add fanctionality of mailsSelected
   // const [mailsSelected, setMailsSelected] = useState([])
 
   // const [isCompose, setIsCompose] = useState(false)

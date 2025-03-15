@@ -45,27 +45,31 @@ export function MailPreview({ mail, onRemove, onRead, handleChange, openCompose 
   }
 
   return (
-    <div className={`mail-item ${isRead ? 'active' : ''}`}>
-      <input
-        type="checkbox"
-        name="isSelected"
-        checked={isSelected || false}
-        className="mail-checkbox"
-        data-id={id}
-        onChange={onHandleChange}
-      />
-      <span
-        className={`mail-star ${isStar ? 'starred' : ''}`}
-        data-id={id}
-        data-name="isStar"
-        data-value={isStar || false}
-        value={isStar || false}
-        onClick={onHandleChange}
-      >
-        {/* {starActive} */}
-        {isStar ? '★' : '☆'}
+    <div className={`mail-item ${isRead ? 'readed' : ''} ${isSelected ? 'selected' : ''}`}>
+      <span className="mail-checkbox">
+        <input
+          type="checkbox"
+          name="isSelected"
+          checked={isSelected || false}
+          className="mail-checkbox-icon"
+          data-id={id}
+          onChange={onHandleChange}
+        />
       </span>
 
+      <span className="mail-star">
+        <div
+          className={`mail-star-icon ${isStar ? 'starred' : ''}`}
+          data-id={id}
+          data-name="isStar"
+          data-value={isStar || false}
+          value={isStar || false}
+          onClick={onHandleChange}
+        >
+          {/* {starActive} */}
+          {isStar ? '★' : '☆'}
+        </div>
+      </span>
       {/* <div onClick={mailClicked}> */}
 
       <span className="mail-from" onClick={mailClicked}>
@@ -73,11 +77,9 @@ export function MailPreview({ mail, onRemove, onRead, handleChange, openCompose 
       </span>
       <span className="mail-subject" onClick={mailClicked}>
         {subject}
-
       </span>
       <span className="mail-separator"> - </span>
       <span className="mail-body" onClick={mailClicked}>
-       
         {body}
       </span>
       {/* createdAt || sentAt */}
