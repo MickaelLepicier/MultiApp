@@ -1,10 +1,18 @@
 .mail-items {
-  /* display: flex;
-  flex-direction: column;
-  gap: 1em; */
-
   overflow: scroll;
 }
+
+/*
+
+TODOs:
+
+Make it for mobile
+
+Create the button to Select All
+
+with Select All I can Delete All or Read All
+
+*/
 
 .mail-item {
   display: grid;
@@ -12,7 +20,6 @@
   align-items: center;
   justify-content: space-between;
 
-  /* padding: 8px; */
   position: relative;
   border: 1px solid #ebebeb;
   cursor: pointer;
@@ -24,7 +31,7 @@
 }
 
 .mail-item.readed {
-  background-color: #e5e5e5;
+  background-color: #f2f6fc;
 }
 
 .mail-item.selected {
@@ -43,15 +50,14 @@
 
 .mail-item:hover .mail-checkbox-icon,
 .mail-item:hover .mail-star-icon {
-  color: #202124;
-  border-color: #202124;
+  color: #444444;
+  border-color: #444444;
 }
 
 .mail-item:hover .mail-star-icon.starred {
   color: gold;
 }
 
-/* TODO make it like in gmail */
 .mail-checkbox {
   display: flex;
   align-items: center;
@@ -89,27 +95,32 @@
 }
 
 .mail-checkbox-icon:checked {
-  border-color: #202124;
+  border-color: #444444;
+}
+
+.outlet-checkbox-icon{
+  border-color: #444444;
+
+}
+
+.mail-checkbox-icon:indeterminate::before {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  content: '-';
+  
+  font-size: 22px;
+  transform: translateY(-8.5px);
+  color: #444444;
 }
 
 .mail-star {
-  /* display: flex;
-  align-items: center;
-  justify-content: center; */
-
   position: relative;
 }
 
 .mail-star-icon {
-  /* display: flex;
-  align-items: center;
-  justify-content: center; */
-
   position: relative;
-  /* width: 40px;
-  height: 40px; */
-  /* justify-self: center;
-  text-align: center; */
 
   font-size: 22px;
   line-height: 1;
@@ -117,40 +128,15 @@
   cursor: pointer;
   color: rgb(183, 183, 183);
   border-radius: 50%;
-  /* transform: scale(1) ; */
-  /* transition: background-color 2s ease; */
 
   overflow: hidden;
-  /* transform: translateX(-11px); */
   z-index: 2;
 }
-
-/* TODOs:
-make the star gold on :hover
-
-make the background on a good position */
-
-.mail-star-icon:hover {
-  /* background-color: lightgray; */
-  /* color: black; */
-  /* position: relative; */
-  /* z-index: 2; */
-}
-
-/* .mail-star-icon {
-  position: relative; 
-  z-index: 1;
-} */
 
 .mail-star-icon.starred {
   color: gold;
   z-index: 3;
 }
-
-/* .mail-star-icon.starred:hover{
-  color: gold;
-
-} */
 
 .mail-checkbox::before,
 .mail-star::before {
@@ -159,7 +145,7 @@ make the background on a good position */
   left: 50%;
   width: 0;
   height: 0;
-  
+
   content: '';
   background-color: rgb(238, 238, 238);
 

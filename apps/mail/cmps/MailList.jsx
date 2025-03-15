@@ -12,10 +12,8 @@ if(!mails) return <div>Loading...</div>
   return (
     <section className="mail-items">
       {mails.map((mail, index) => {
-        // console.log('mail.id: ',mail.id)
         return (
           <Fragment key={index}>
-             {/* TODO - input type="checkbox" to catch all */}
             <MailPreview
               mail={mail}
               handleChange={handleChange}
@@ -24,7 +22,6 @@ if(!mails) return <div>Loading...</div>
               openCompose={openCompose}
             />
 
-            {/* <button className="mail-delete" onClick={() => onRemove(id)}>🗑️</button> */}
           </Fragment>
         )
       })}

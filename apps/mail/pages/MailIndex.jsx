@@ -1,11 +1,8 @@
-
-
-
 import { mailService } from '../services/mail.service.js'
 import { MailHeader } from '../cmps/MailHeader.jsx'
 import { MailCompose } from '../cmps/MailCompose.jsx'
 import { MailFilterSidebar } from '../cmps/MailFilterSidebar.jsx'
-// import { MailList } from '../cmps/MailList.jsx'
+import { OutletMailHeader } from '../cmps/OutletMailHeader.jsx'
 import {
   showErrorMsg,
   showSuccessMsg
@@ -173,6 +170,7 @@ export function MailIndex() {
         <MailFilterSidebar openCompose={openCompose} isWide={isWide} isBtnWideClicked={isBtnWideClicked} setIsWide={setIsWide} />
 
         <div className="outlet-container">
+          <OutletMailHeader mails={mails}  setMails={setMails} onRemove={onRemove} onRead={onRead} handleChange={handleChange}/>
           <Outlet
             context={{ mails, handleChange, onRemove, onRead, openCompose }}
           />

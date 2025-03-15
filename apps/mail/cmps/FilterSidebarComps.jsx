@@ -19,6 +19,7 @@ export function MailInbox() {
 
   return (
     <section className="inbox-container">
+
       <MailList
         mails={filteredMails}
         handleChange={handleChange}
