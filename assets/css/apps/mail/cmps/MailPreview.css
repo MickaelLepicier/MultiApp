@@ -1,4 +1,5 @@
 .mail-items {
+  /* TODO - make the scroll just inside */
   overflow: scroll;
 }
 
@@ -89,21 +90,20 @@ with Select All I can Delete All or Read All
   justify-content: center;
   align-items: center;
 
-  content: '✔';
-  font-size: 10px;
-  transform: translateY(-1px);
+  /* TODO Ask Dori about to make the content like in gmail */
+  content: '✓';
+  /* content: '✔'; */
+  /* font-size: 10px; */
+  /* transform: translateY(-2.5px); */
+
+  transform: translateY(-2px);
 }
 
 .mail-checkbox-icon:checked {
   border-color: #444444;
 }
 
-.outlet-checkbox-icon{
-  border-color: #444444;
-
-}
-
-.mail-checkbox-icon:indeterminate::before {
+/* .mail-checkbox-icon:indeterminate::before {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -113,7 +113,7 @@ with Select All I can Delete All or Read All
   font-size: 22px;
   transform: translateY(-8.5px);
   color: #444444;
-}
+} */
 
 .mail-star {
   position: relative;
@@ -156,7 +156,7 @@ with Select All I can Delete All or Read All
 }
 
 .mail-star::before {
-  left: 30%;
+  left: 35%;
 }
 
 .mail-checkbox:hover::before,

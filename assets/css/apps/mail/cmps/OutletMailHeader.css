@@ -1,0 +1,56 @@
+.outlet-mail-container {
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+  height: 48px;
+}
+
+.outlet-mail-checkbox{
+    margin-inline: 0 6px;
+    /* transform: translateY(5px); */
+    transform: translateY(1.5px);
+}
+
+
+
+.outlet-checkbox-icon {
+  border-color: #444444;
+}
+
+.outlet-checkbox-icon:indeterminate::before {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    /* TODO Ask Dori about to make the content longer like in gmail */
+    content: '-';
+    /* content: '─'; */
+    /* content: '━'; */
+    
+    /* font-size: 22px; */
+    /* transform: translateY(-9px); */
+    transform: translateY(-3px);
+
+    color: #444444;
+  }
+
+.outlet-btns-action {
+  display: flex;
+  align-items: center;
+  /* gap: 10px; */
+}
+
+/* TODO: change the style to be like in gmail */
+.btn-separator {
+  /* margin: 0 5px; */
+  font-size: 18px;
+  /* color: rgb(205, 205, 205); */
+  /* color: #e6e6e6; */
+  color: #dcdcdc;
+}
+
+/* .divider{
+    border-right: 2px solid  lightgray;
+    padding-right: 10px;
+  margin-right: 10px;
+} */
