@@ -16,6 +16,7 @@ export const mailService = {
   put,
   remove,
   save,
+  saveMailsData,
   getEmptyMail,
   getDefaultFilter,
   getFilterFromSearchParams
@@ -117,6 +118,10 @@ function save(mail) {
     console.log('post')
     return post(mail)
   }
+}
+
+function saveMailsData(updatedMails){
+  return storageService.save(MAIL_KEY, updatedMails)
 }
 
 function getEmptyMail(to = '', subject = '', body = '') {

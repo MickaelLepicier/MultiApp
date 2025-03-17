@@ -1,4 +1,7 @@
+import { mailService } from '../services/mail.service.js'
+
 const { useState, useEffect, useRef } = React
+const { useLocation } = ReactRouterDOM
 
 export function OutletMailHeader({
   mails,
@@ -10,14 +13,18 @@ export function OutletMailHeader({
   // TODOs:
   //V Create indbox btn for - Select all || UnSelect all
   //V If one of the mails is isSelected = true so I put - in the checkbox
+  //V Create Delete & Read || UnRead btns
 
   // TODO keep working on that
-  // Create Delete & Read || UnRead btns
+  // Fix BUG - the isSelect in the mails stays when I nav between comps
+  // change the Read || unRead btn symbol as what it is going to do - Read || unRead
+  // the scrolls should be just on the mailItems
 
   // btns functionality:
   // Delete - check the first 50 mails if isSelected delete
   // Read - check the first 50 mails if isRead Read || UnRead
   // (if 1 mail is !isRead so the option is isRead === true )
+
   const checkboxRef = useRef(null)
   const btnsRef = useRef(null)
 
@@ -27,6 +34,8 @@ export function OutletMailHeader({
 
   const isRead = true
   const readIcon = isRead ? 'read' : 'unread'
+
+  const location = useLocation()
 
   useEffect(() => {
     if (checkboxRef.current) {
@@ -46,22 +55,79 @@ export function OutletMailHeader({
     )
   }
 
-  function onSetRead() {
-    // onRead(id)
-    const filteredMails = mails.filter((mail) => mail.isRead)
-    console.log('filteredMails: ', filteredMails)
+  // TODO - question for Dori:
+  // Is it better to have onSetRead & onSetRemove functions
+  // or 1 function as onAction?
 
-    mails.forEach((mail) => {
-      // TODO put more funcionality for unRead
-      if (mail.isSelected && !mail.isRead) {
-        onRead(mail.id)
-      }
+  function onSetRead() {
+    // TODO - question for Dori:
+    // Is it better to save each mail with onRead that in MailIndex
+    // or Is it better to rewrite all the data with saveMailsData
+
+    // mails.forEach((mail) => {
+    //   if (mail.isSelected) {
+    //     onRead(mail.id)
+    //   }
+    // })
+
+    const updatedMails = mails.map((mail) => {
+      // if(mail.isSelected) return {...mail, isRead: !mail.isRead}
+      return mail.isSelected ? { ...mail, isRead: !mail.isRead } : mail
     })
+
+    setMails(updatedMails)
+
+    mailService.saveMailsData(updatedMails)
   }
 
   function onSetRemove() {
-    // onRemove(id)
-    const filteredMails = mails.filter((mail) => mail.removedAt)
+    const updatedMails = mails.map((mail) => {
+      // if(mail.isSelected) return {...mail, isRead: !mail.isRead}
+      return mail.isSelected ? { ...mail, removedAt: true } : mail
+    })
+
+    setMails(updatedMails)
+
+    mailService.saveMailsData(updatedMails)
+  }
+
+  function onAction(actionType) {
+    const isTrashComp = location.pathname.includes('/mail/trash')
+
+    let updatedMails = mails.map((mail) => {
+      if (actionType === 'read') {
+        return mail.isSelected ? { ...mail, isRead: !mail.isRead } : mail
+      }
+
+      if (actionType === 'remove') {
+        return mail.isSelected ? { ...mail, removedAt: true } : mail
+      }
+    })
+
+    if (actionType === 'remove' && isTrashComp) {
+      updatedMails = mails.filter((mail) => !mail.isSelected)
+    }
+
+    setMails(updatedMails)
+
+    mailService.saveMailsData(updatedMails)
+
+    /*
+
+
+        mailService
+          .remove(mailId)
+          .then(() => {
+            setMails((prevMails) => prevMails.filter((mail) => mail.id !== mailId))
+            showSuccessMsg('Mail has been Deleted')
+          })
+          .catch((err) => {
+            console.log('Fail to delete the mail', err)
+            showErrorMsg('Fail to delete the mail')
+            // navigate('/mail')
+          })
+
+    */
   }
 
   // function checkMails(type){
@@ -83,7 +149,7 @@ export function OutletMailHeader({
       </span>
 
       <div className="outlet-btns-action" ref={btnsRef}>
-        <button className="btn-action" onClick={onSetRead}>
+        <button className="btn-action" onClick={() => onAction('read')}>
           <img
             src={`/apps/mail/img/icon/${readIcon}.png`}
             alt="read-unread-icon"
@@ -93,7 +159,7 @@ export function OutletMailHeader({
 
         <div className="btn-separator">│</div>
 
-        <button className="btn-action" onClick={onSetRemove}>
+        <button className="btn-action" onClick={() => onAction('remove')}>
           <img
             src="/apps/mail/img/icon/trash.png"
             alt="trash-icon"

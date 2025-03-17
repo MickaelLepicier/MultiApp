@@ -113,6 +113,7 @@ export function MailIndex() {
 
   function onRead(mailId) {
     const mail = mails.find((mail) => mail.id === mailId)
+    
     if (!mail) {
       console.log('Failed to find the mail')
       return
