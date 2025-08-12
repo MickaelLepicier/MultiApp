@@ -30,21 +30,21 @@ We’re creating a modern music web app that focuses on:
 
 1. Clone the repo:
    
-bash
+```bash
    git clone https://github.com/MickaelLepicier/multiapp
-
+```
 
 2. Install dependencies:
    
-bash
+```bash
    npm install
-
+```
 
 3. Run the dev server:
    
-bash
+```bash
    npm run dev:local
-
+```
 
 
 
@@ -70,4 +70,5 @@ bash
 - 🌙 Dark mode toggle
 
 ---
+
 
