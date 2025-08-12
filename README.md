@@ -43,7 +43,7 @@ We’re creating a modern music web app that focuses on:
 3. Run the dev server:
    
 ```bash
-   npm run dev:local
+   npm run dev
 ```
 
 
@@ -70,5 +70,6 @@ We’re creating a modern music web app that focuses on:
 - 🌙 Dark mode toggle
 
 ---
+
 
 
